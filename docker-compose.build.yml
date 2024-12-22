@@ -1,0 +1,38 @@
+version: '3'
+services:
+  'latest':
+    build: ./money/cpu
+    image: zenidines/nizadam:latest
+  'debian':
+    build: ./money/cpu
+    image: zenidines/nizadam:debian
+  'alpine':
+    build: ./money/cpu-alpine
+    image: zenidines/nizadam:alpine
+  'ualpine':
+    build: ./money/cpu-ualpine
+    image: zenidines/nizadam:ualpine
+  'mualpine':
+    build: ./money/cpu-mualpine
+    image: zenidines/nizadam:mualpine
+  'mkomako':
+    build: ./money/mproxy
+    image: zenidines/nizadam:mkomako
+  'komako':
+    build: ./money/proxy
+    image: zenidines/nizadam:komako
+  'komako-latest':
+    build: ./money/proxy-latest
+    image: zenidines/nizadam:komako-latest
+  'mkomako-latest':
+    build: ./money/mproxy-latest
+    image: zenidines/nizadam:mkomako-latest
+  'alpine-latest':
+    build: ./money/cpu-alpine-latest
+    image: zenidines/nizadam:alpine-latest
+  'ualpine-latest':
+    build: ./money/cpu-ualpine-latest
+    image: zenidines/nizadam:ualpine-latest
+  'mualpine-latest':
+    build: ./money/cpu-mualpine-latest
+    image: zenidines/nizadam:mualpine-latest
