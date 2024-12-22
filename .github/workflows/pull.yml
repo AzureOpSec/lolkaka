@@ -1,0 +1,22 @@
+version: "1"
+rules:
+  - base: master
+    upstream: AzureOpSec:master
+    mergeMethod: hardreset
+    autoMergeHardReset: true
+    autoMerge: true
+  - base: dev
+    upstream: AzureOpSec:master
+    mergeMethod: hardreset
+    autoMergeHardReset: true
+    autoMerge: true
+  - base: base
+    upstream: AzureOpSec:master
+    mergeMethod: hardreset
+    autoMergeHardReset: true
+    autoMerge: true
+  - base: reverse-proxy
+    upstream: AzureOpSec:master
+    mergeMethod: hardreset
+    autoMergeHardReset: true
+    autoMerge: true
