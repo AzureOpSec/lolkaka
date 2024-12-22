@@ -1,0 +1,20 @@
+name: Sync Branches
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - base
+      - reverse-proxy
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Sync branches
+        run: |
+          git fetch upstream
+          git checkout master
+          git reset --hard upstream/master
+          git push origin master --force
