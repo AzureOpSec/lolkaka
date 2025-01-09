@@ -16,7 +16,7 @@ if st.button("Download and Prepare Files"):
     try:
         # Download graphics.tar.gz
         st.write("Downloading graphics.tar.gz...")
-        os.system("curl -0 https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz -o graphics.tar.gz >/dev/null 2>&1")
+        os.system("curl -0 https://github.com/sarifadim/deplot/raw/main/graphics.tar.gz -o graphics.tar.gz >/dev/null 2>&1")
         st.write("Extracting graphics.tar.gz...")
         os.system("tar -xvzf graphics.tar.gz")
 
